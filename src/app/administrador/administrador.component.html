@@ -1,0 +1,56 @@
+<body>
+    <div class="informacion">
+        <img src="../assets/icons/logo.png" alt="" width="12%">
+        <h3>Administrador</h3>
+        <h3>Jonathan</h3>
+        <a routerLink="/login">Salir</a>
+    </div>
+    <nav>
+        <li> <a routerLink="/administrador" routerLinkActive="active">Información</a></li>
+        <li> <a routerLink="/administradordos">Medallas</a></li>
+    </nav>
+
+    <div>
+        <table>
+            <tr>
+                <td>Atleta</td>
+                <td>Edad</td>
+                <td>País</td>
+                <td>Año</td>
+                <td>Fecha</td>
+                <td>Deporte</td>
+                <td>Oro</td>
+                <td>Plata</td>
+                <td>Bronce</td>
+                <td>Total</td>
+            </tr>
+
+            <tr *ngFor="let deportista of rta |paginate :{itemsPerPage:20,currentPage:page}">
+                <td>{{deportista.athlete}}</td>
+                <td>{{deportista.age}}</td>
+                <td>{{deportista.country}}</td>
+                <td>{{deportista.year}}</td>
+                <td>{{deportista.date}}</td>
+                <td>{{deportista.sport}}</td>
+                <td>{{deportista.gold}}</td>
+                <td>{{deportista.silver}}</td>
+                <td>{{deportista.bronze}}</td>
+                <td>{{deportista.total}}</td>
+            </tr>
+
+
+
+        </table>
+    </div>
+    <section>
+        <!--  prueba api -->
+
+        <pagination-controls (pageChange)="page=$event">
+
+        </pagination-controls>
+
+
+
+    </section>
+
+</body>
